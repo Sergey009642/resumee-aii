@@ -5,14 +5,18 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 
 export default defineConfig({
-    preview: {
+  preview: {
     allowedHosts: [
-      'ai-resume-9.onrender.com', // Ваш хост
-      'localhost',                // Для локальной разработки
-    ]
+      'ai-resume-9.onrender.com', // քո հոսթինգի դոմենը
+      'localhost',                // լոկալ զարգացման համար
+    ],
   },
-  assetsInclude: ['**/*.docx'], 
-  // ... другие конфигурации ...
+  server: {
+    proxy: {
+      "/api": "http://localhost:3001", 
+    },
+  },
+  assetsInclude: ['**/*.docx'],
   plugins: [
     react(),
     svgr({

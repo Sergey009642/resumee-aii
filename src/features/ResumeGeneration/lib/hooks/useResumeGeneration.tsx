@@ -1,48 +1,47 @@
-import OpenAI from "openai";
 import { generateResumePrompt, GenerateResumePromptProps } from "../prompts/generateResumePrompt";
 import { useState } from "react";
 import { notification } from "antd";
 
-function useResumeGeneration() { 
-    const [api, contextHolder] = notification.useNotification();
+function useResumeGeneration() {
+  const [api, contextHolder] = notification.useNotification();
   const [resumeGenerateLoading, setGenerateResumeLoading] = useState(false);
 
-  const openai = new OpenAI({ 
-    apiKey: import.meta.env.VITE_OPENAI_API_KEY,
-    dangerouslyAllowBrowser: true, 
-  });
-
-    async function getAIResponse(prompt: string) {
-      setGenerateResumeLoading(true);
+  async function getAIResponse(prompt: string) {
+    setGenerateResumeLoading(true);
     try {
-      const response = await openai.chat.completions.create({
-        model: "gpt-4",
-        messages: [
-          { role: "user", content: prompt }
-        ],
-        temperature: 0.7,
+      // Backend API-ին դիմելը
+      const response = await fetch("/api/generate-resume", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ prompt }),
       });
 
+      if (!response.ok) {
+        throw new Error("Ошибка при запросе к серверу");
+      }
+
+      const data = await response.json();
       setGenerateResumeLoading(false);
-      return response.choices[0]?.message?.content;
+      return data.result;
     } catch (error) {
-      console.log(error, 'error');
+      console.error("Ошибка генерации резюме:", error);
       api.error({
         message: "Произошла ошибка генерации Резюме",
-        description: (error as {message: string}).message
-      })
-      console.error("Ошибка OpenAI:", error);
+        description: (error as { message: string }).message,
+      });
       setGenerateResumeLoading(false);
       return null;
     }
   }
+
   return {
     contextHolder,
     resumeGenerateLoading,
-    generateResume: (value: GenerateResumePromptProps) =>  getAIResponse(generateResumePrompt(value))
-  }
+    generateResume: (value: GenerateResumePromptProps) =>
+      getAIResponse(generateResumePrompt(value)),
+  };
 }
 
-export {
-    useResumeGeneration
-}
+export { useResumeGeneration };
