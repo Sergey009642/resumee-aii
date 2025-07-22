@@ -5,7 +5,7 @@ import { useState } from "react";
 import { Button, DatePicker, Divider, Input, InputNumber, Select } from "antd";
 import dayjs from "dayjs";
 import TextArea from "antd/es/input/TextArea";
-import { CloseOutlined, UpOutlined, DownOutlined, FileTextOutlined, InboxOutlined, ToolOutlined } from "@ant-design/icons";
+import { CloseOutlined, FileTextOutlined, InboxOutlined} from "@ant-design/icons";
 import { FieldType } from "@shared/types/ToolBarTypes";
 import { useAtomValue, useSetAtom } from "jotai";
 import { StepFormSlice } from "@features/FirstStepForm/slice/FirstStepFormSlice";
@@ -595,8 +595,10 @@ const ResumeCard = ({ cardName, icon, id }: ResumeCardProps) => {
         onClick={handleHeaderClick}
         style={{ cursor: 'pointer' }}
       >
-        <div className={cls.icon}>
+        <div className={cls.icon_text}>
+          <div className={cls.icon}>
           {icon}
+          </div>
           <Typography.IbmPlexMono className={classNames(cls.header, cls.text2)}>
             {cardName}
           </Typography.IbmPlexMono>

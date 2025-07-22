@@ -110,16 +110,12 @@
   font-family: "Inter", sans-serif;
 }
 
-.icon {
+.icon_text{
   display: flex;
   align-items: center;
-  gap: 12px;
-  
-  img {
-    width: 24px;
-    height: 24px;
-    object-fit: contain;
-  }
+}
+.icon{
+  margin-top: 20px;
 }
 
 .Pading {

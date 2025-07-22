@@ -1,11 +1,10 @@
-import { AuditOutlined, BankOutlined, StarOutlined, UserOutlined } from "@ant-design/icons";
 
 export const resumeToolbarConfig = [
     {
       id: "personalInfo",
-      cardName: "Личная информация",
+      cardName: "Personal Information",
       type: "form",
-      icon: <UserOutlined style={{ fontSize: "22px" }} />,
+      icon:<img src="/div (1).png" alt="icon"  />,
       fields: [
         {
           fieldName: "Имя",
@@ -36,9 +35,9 @@ export const resumeToolbarConfig = [
     },
     {
       id: "education",
-      cardName: "Образование",
+      cardName: "Education",
       type: "form",
-      icon: <AuditOutlined  style={{ fontSize: "22px" }} />,
+      icon:<img src="/div (2).png" alt="icon"  />,
       fields: [
         {
           fieldName: "Имя",
@@ -69,13 +68,13 @@ export const resumeToolbarConfig = [
     },
     {
       id: "workExpirience",
-      cardName: "Опыт работы",
+      cardName: "Work Experience",
       type: "form",
-      icon: <BankOutlined style={{ fontSize: "22px" }} />,
+      icon:<img src="/div (3).png" alt="icon"  />,
       fields: [
         [
           {
-            fieldName: "Наименование компании",
+            fieldName: "Наименование компаи",
           },
           {
             fieldName: "Должность",
@@ -103,23 +102,10 @@ export const resumeToolbarConfig = [
     },
     {
       id: "skills",
-      cardName: "Навыки",
+      cardName: "Skills",
       type: "select",
-      icon: <StarOutlined style={{ fontSize: "22px" }} />,
+      icon:<img src="/div (4).png" alt="icon"  />,
       fields: [],
       isCollapsed: false,
     },
-    // {
-    //   id: "strengths",
-    //   cardName: "Сильные стороны",
-    //   icon: <BulbOutlined style={{ fontSize: "22px" }} />,
-    //   type: "select",
-    //   fields: [
-    //     "Стрессоустойчивый",
-    //     "Гибкий",
-    //     "Работа в команде",
-    //     "Пунктуальный",
-    //   ],
-    //   isCollapsed: false,
-    // },
   ];

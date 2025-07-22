@@ -32,7 +32,7 @@ const ResumeTemplate1 = React.forwardRef<HTMLDivElement, ResumeTemplate1Props>((
     professionalPath,
     educationDetails,
   } = resumeData || {};
-  
+
   const [photoUrl, setPhotoUrl] = useState<string>('');
 
   useEffect(() => {
@@ -46,9 +46,9 @@ const ResumeTemplate1 = React.forwardRef<HTMLDivElement, ResumeTemplate1Props>((
     }
   }, [photo]);
 
-  const isEmpty = !name && !role && !email && !summary && (!skills || skills.length === 0) && 
-                  (!professionalPath || professionalPath.length === 0) && 
-                  (!educationDetails || educationDetails.length === 0);
+  const isEmpty = !name && !role && !email && !summary && (!skills || skills.length === 0) &&
+    (!professionalPath || professionalPath.length === 0) &&
+    (!educationDetails || educationDetails.length === 0);
 
   return (
     <div className={classNames(cls.resume, {
@@ -70,14 +70,7 @@ const ResumeTemplate1 = React.forwardRef<HTMLDivElement, ResumeTemplate1Props>((
                 <div className={classNames({
                   [cls.profilePhotoClassic]: !isShrinked,
                   [cls.profilePhotoShrinked]: isShrinked,
-                })} style={{
-                  background: '#f0f0f0',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: '#999',
-                  fontSize: isShrinked ? '8px' : '12px'
-                }}>
+                })}>
                   Photo
                 </div>
               )}
@@ -93,33 +86,34 @@ const ResumeTemplate1 = React.forwardRef<HTMLDivElement, ResumeTemplate1Props>((
                 </span>
               </div>
             </div>
-            
-            {(experience || isEmpty) && (
-              <div className={cls.infoName}>
-                <span className={cls.bold}>Experience:</span>
-                <span contentEditable={allowEditing} className={cls.notbold}>
-                  {experience || (isEmpty ? "Your years of experience" : "")}
-                </span>
-              </div>
-            )}
+            <div className={cls.contactInfo}>
+              {(experience || isEmpty) && (
+                <div className={cls.infoName}>
+                  <span className={cls.bold}>Experience:</span>
+                  <span contentEditable={allowEditing} className={cls.notbold}>
+                    {experience || (isEmpty ? "Your years of experience" : "")}
+                  </span>
+                </div>
+              )}
 
-            {(education || isEmpty) && (
-              <div className={cls.edName}>
-                <span className={cls.bold}>Education:</span>
-                <span contentEditable={allowEditing} className={cls.notbold}>
-                  {education || (isEmpty ? "Your education background" : "")}
-                </span>
-              </div>
-            )}
-            
-            {(location || isEmpty) && (
-              <div className={cls.loName}>
-                <span className={cls.bold}>Location:</span>
-                <span contentEditable={allowEditing} className={cls.notbold}>
-                  {location || (isEmpty ? "Your location" : "")}
-                </span>
-              </div>
-            )}
+              {(education || isEmpty) && (
+                <div className={cls.edName}>
+                  <span className={cls.bold}>Education:</span>
+                  <span contentEditable={allowEditing} className={cls.notbold}>
+                    {education || (isEmpty ? "Your education background" : "")}
+                  </span>
+                </div>
+              )}
+
+              {(location || isEmpty) && (
+                <div className={cls.loName}>
+                  <span className={cls.bold}>Location:</span>
+                  <span contentEditable={allowEditing} className={cls.notbold}>
+                    {location || (isEmpty ? "Your location" : "")}
+                  </span>
+                </div>
+              )}
+            </div>
           </div>
         </div>
 
