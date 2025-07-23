@@ -1,9 +1,41 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { StepFormSlice } from '@features/FirstStepForm/slice/FirstStepFormSlice';
+import { useAtomValue } from 'jotai';
 import { Menu, X } from 'lucide-react';
 import cls from './Header.module.scss';
 
+
+
 function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const $currentResumeStep = StepFormSlice.initialState.$currentResumeStep;
+  const $resumePhoto = StepFormSlice.initialState.$resumePhoto;
+  const currentStep = useAtomValue($currentResumeStep);
+  const resumePhoto = useAtomValue($resumePhoto);
+  // The last step index is 4 (ResumeContainer)
+  const isLastStep = currentStep === 4;
+
+  // For displaying the uploaded photo in the header
+  const [photoUrl, setPhotoUrl] = useState<string>("");
+  const prevPhotoUrl = useRef<string>("");
+
+  useEffect(() => {
+    if (resumePhoto) {
+      const url = URL.createObjectURL(resumePhoto);
+      setPhotoUrl(url);
+      // Clean up previous URL
+      if (prevPhotoUrl.current) URL.revokeObjectURL(prevPhotoUrl.current);
+      prevPhotoUrl.current = url;
+    } else {
+      setPhotoUrl("");
+      if (prevPhotoUrl.current) URL.revokeObjectURL(prevPhotoUrl.current);
+      prevPhotoUrl.current = "";
+    }
+    // Clean up on unmount
+    return () => {
+      if (prevPhotoUrl.current) URL.revokeObjectURL(prevPhotoUrl.current);
+    };
+  }, [resumePhoto]);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -31,7 +63,23 @@ function Header() {
 
           {/* Desktop CTA */}
           <div className={cls.cta}>
-            <button className={cls.ctaButton}>Sign Up Free</button>
+            {isLastStep ? (
+              photoUrl ? (
+                <img
+                  src={photoUrl}
+                  alt="Uploaded"
+                  style={{ height: 40, width: 40, borderRadius: '50%', objectFit: 'cover', imageRendering: 'auto', background: '#fff' }}
+                  fetchPriority="high"
+                  decoding="async"
+                  loading="eager"
+                  draggable={false}
+                />
+              ) : (
+                <img src="/upload.png" alt="Uploaded" style={{ height: 40, width: 40, borderRadius: '50%' }} />
+              )
+            ) : (
+              <button className={cls.ctaButton}>Sign Up Free</button>
+            )}
           </div>
       </div>
           {/* Mobile Menu Toggle */}
@@ -58,7 +106,23 @@ function Header() {
               <a href="/templates" className={cls.mobileLink}>Templates</a>
               <a href="/pricing" className={cls.mobileLink}>Pricing</a>
               <a href="/login" className={cls.mobileLink}>Login</a>
-              <button className={cls.mobileCta}>Sign Up Free</button>
+              {isLastStep ? (
+                photoUrl ? (
+                  <img
+                    src={photoUrl}
+                    alt="Uploaded"
+                    style={{ height: 36, width: 36, borderRadius: '50%', objectFit: 'cover', imageRendering: 'auto', background: '#fff' }}
+                    fetchPriority="high"
+                    decoding="async"
+                    loading="eager"
+                    draggable={false}
+                  />
+                ) : (
+                  <img src="/upload.png" alt="Uploaded" style={{ height: 36, width: 36, borderRadius: '50%' }} />
+                )
+              ) : (
+                <button className={cls.mobileCta}>Sign Up Free</button>
+              )}
             </nav>
           </div>
         )}

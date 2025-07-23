@@ -40,8 +40,16 @@
   border: none;
   transform: translate(-80px);
   position: absolute;
+  top: 70px;
+  right: 0px;
   cursor: pointer;
   color: gray;
+}
+@media screen and (max-width: 768px) {
+  .resume {
+    transform: translate(-50px);
+    top: 70px;
+  }
 }
 
 .resumeToolbar {
@@ -84,6 +92,16 @@
 
 /* В вашем CSS-файле (например, ResumeContainer.module.css) */
 @media print {
+  .header,
+  header,
+  [class*="Header"],
+  [class*="header"] {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
   .shadowResume {
     display: none;
   }
