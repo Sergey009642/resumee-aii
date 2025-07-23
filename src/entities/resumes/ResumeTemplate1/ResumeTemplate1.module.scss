@@ -47,17 +47,6 @@
     display: flex;
     gap: 2px;
 }
-.contactInfo {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    margin-top: 20px;
-}
-@media (max-width: 1280px) {
-    .contactInfo {
-    
-    }
-}
 
 .profilePhotoClassic {
     width: 116px;
@@ -77,6 +66,12 @@
     .profilePhotoClassic {
         width: 100px;
         height: 100px;
+    }
+}
+@media (min-width: 1500px) {
+    .profilePhotoClassic {
+        width: 160px;
+        height: 160px;
     }
 }
 
@@ -102,7 +97,15 @@
         justify-content: space-between;
         padding: 0 10px;
     }
-}   
+}  
+@media (min-width: 1500px) {
+    .imtext {
+         display: flex;
+         gap: 60px;
+        justify-content: space-between;
+        padding: 0 10px;
+    }
+} 
 .imgText {
     display: flex;
     flex-direction: column;
@@ -119,6 +122,21 @@
         font-weight: bold;
     }
 }
+@media  (min-width: 1500px) {
+    .imgText {
+        .name {
+            font-size: 44px;
+        }
+        .role {
+            font-size: 24px;
+        }
+        .email {
+            font-size: 18px;
+            color: rgb(116, 114, 114);  
+        }
+    }
+    
+}
 
 .infoName {
     display: flex;
@@ -133,6 +151,14 @@
         justify-content: flex-start;
         margin-left: 20px;
         gap: 50px;
+    }
+}
+@media (min-width: 1500px) {
+    .infoName {
+        display: flex;
+        justify-content: flex-start;
+        margin-left: 40px;
+        gap: 100px;
     }
 }
 
@@ -151,6 +177,15 @@
         gap: 55px;
     }
 }
+@media screen and (min-width: 1500px) {
+    .edName {
+        display: flex;
+        justify-content: flex-start;
+        margin-left: 33px;
+        gap: 117px;
+    }
+    
+}
 
 
 .loName {
@@ -168,12 +203,20 @@
         gap: 67px;
     }
 }
+@media (min-width: 1500px) {
+    .loName {
+        display: flex;
+        justify-content: flex-start;
+        margin-left: 40px;
+        gap: 125px;
+    }
+}
 
 .abName {
     display: flex;
     justify-content: flex-start;
     margin-left: 40px;
-    gap: 120px;
+    gap: 116px;
     color: #c5c5c5;
 }
 @media (max-width: 1280px) {
@@ -182,6 +225,14 @@
         justify-content: flex-start;
         margin-left: 20px;
         gap: 95px;
+    }
+}
+@media (min-width: 1500px) {
+    .abName {
+        display: flex;
+        justify-content: flex-start;
+        margin-left: 40px;
+        gap: 158px;
     }
 }
 
@@ -200,11 +251,20 @@
         gap: 95px;
     }
 }
+@media (min-width: 1500px) {
+    .skName {
+        display: flex;
+        justify-content: flex-start;
+        margin-left: 40px;
+        gap: 158px;
+        margin-top: 15px;
+    }
+}
 
 .cnName {
     display: flex;
     justify-content: flex-start;
-    gap: 60px;
+    gap: 68px;
     color: #c5c5c5;
 }
 @media (max-width: 1280px) {
@@ -215,11 +275,18 @@
         font-size: 14px;
     }
 }
+@media (min-width: 1500px) {
+    .cnName {
+        display: flex;
+        justify-content: flex-start;
+        gap: 88px;
+    }
+}
 
 .psName {
     display: flex;
     justify-content: flex-start;
-    gap: 123px;
+    gap: 126px;
     color: #c5c5c5;
 }
 @media (max-width: 1280px) {
@@ -229,11 +296,18 @@
         gap: 75px;
     }
 }
+@media (min-width: 1500px) {
+    .psName {
+        display: flex;
+        justify-content: flex-start;
+        gap: 167px;
+    }
+}
 
 .dcName {
     display: flex;
     justify-content: flex-start;
-    gap: 96px;
+    gap: 106px;
     color: #c5c5c5;
 }
 @media (max-width: 1280px) {
@@ -243,11 +317,18 @@
         gap: 52px;
     }
 }
+@media (min-width: 1500px) {
+    .dcName {
+        display: flex;
+        justify-content: flex-start;
+        gap: 136px;
+    }
+}
 
 .esName {
     display: flex;
     justify-content: flex-start;
-    gap: 47px;
+    gap: 57px;
     color: #c5c5c5;
 }
 @media (max-width: 1280px) {
@@ -255,6 +336,13 @@
         display: flex;
         justify-content: flex-start;
         gap: 28px;
+    }
+}
+@media (min-width: 1500px) {
+    .esName {
+        display: flex;
+        justify-content: flex-start;
+        gap: 98px;
     }
 }
 
@@ -268,12 +356,10 @@
         font-size: 10px;
     }
 }
-
-.respName {
-    display: flex;
-    justify-content: flex-start;
-    gap: 63px;
-    color: #c5c5c5;
+@media (min-width: 1500px) {
+    .boldEnd {
+        font-size: 16px;
+    }
 }
 
 .achivName {
@@ -287,6 +373,13 @@
         display: flex;
         justify-content: flex-start;
         gap: 33px;
+    }
+}
+@media (min-width: 1500px) {
+    .achivName {
+        display: flex;
+        justify-content: flex-start;
+        gap: 100px;
     }
 }
 
@@ -303,6 +396,14 @@
         gap: 110px;
     }
 }
+@media (min-width: 1500px) {
+    .eyName {
+        display: flex;
+        justify-content: flex-start;
+        gap: 210px;
+    }
+}
+
 
 .inName {
     display: flex;
@@ -317,7 +418,13 @@
         gap: 63px;
     }
 }
-
+@media (min-width: 1500px) {
+    .inName {
+        display: flex;
+        justify-content: flex-start;
+        gap: 154px;
+    }
+}
 
 .leName {
     display: flex;
@@ -330,6 +437,13 @@
         display: flex;
         justify-content: flex-start;
         gap: 90px;
+    }
+}
+@media (min-width: 1500px) {
+    .leName {
+        display: flex;
+        justify-content: flex-start;
+        gap: 188px;
     }
 }
 
@@ -346,20 +460,14 @@
         gap: 103px;
     }
 }
-
-.spName {
-    display: flex;
-    justify-content: flex-start;
-    gap: 121px;
-    color: #c5c5c5;
-}
-@media (max-width: 1280px) {
-    .spName {
+@media (min-width: 1500px) {
+    .faName {
         display: flex;
         justify-content: flex-start;
-        gap: 80px;
+        gap: 205px;
     }
-}       
+}
+
 
 .achievements {
     display: flex;
@@ -381,6 +489,11 @@
         font-size: 14px;
     }
 }
+@media (min-width: 1500px) {
+    .work {
+        font-size: 22px;
+    }
+}
 
 .profilePhotoShrinked {
     width: 500px;
@@ -389,11 +502,20 @@
 .bold {
     font-weight: bold;
 }
-
-.notbold {
-    color: rgb(116, 114, 114);
+@media (min-width: 1500px) {
+    .bold {
+        font-size:  22px;
+    }
 }
-
+.notbold {
+    font-weight: normal;
+    color: #999;
+}
+@media (min-width: 1500px) {
+    .notbold {
+        font-size:  18px;
+    }
+}
 .professionalPathWrap {
     display: flex;
     flex-direction: column;
@@ -420,7 +542,7 @@
     flex-direction: column;
     gap: 8px;
     padding: 10px;
-    margin-left: 10px;
+    margin-left: 1px;
     margin-top: 16px
 }
 
