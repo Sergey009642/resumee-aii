@@ -39,10 +39,10 @@ const SecondStepForm = () => {
       <div className={cls.mainWrapper}>
         <div className={cls.textWrapper}>
           <Typography.Ubuntu className={cls.headText}>
-            Информация об опыте работы
+            Work Experience Information
           </Typography.Ubuntu>
           <Typography.Ubuntu className={cls.subtitleText}>
-            Введите основную информацию об опыте работы
+            Enter your work experience details
           </Typography.Ubuntu>
         </div>
         <div className={cls.scrollArea}>
@@ -50,17 +50,12 @@ const SecondStepForm = () => {
             <>
               <Divider style={{ display: idx === 0 ? "none" : undefined }} />
               <div className={cls.crossButtonWrapper}>
-                <Button
-                  type="text"
-                  size="small"
-                  style={{
-                    // display: idx === 0 ? "none" : undefined,
-                    width: "40px",
-                  }}
+                <button
+                className={cls.crossButton}
                   onClick={() => onDeleteWorkCrossClick(idx)}
                 >
                   <CloseOutlined size={12} />
-                </Button>
+                </button>
               </div>
 
               {/* <div className={cls.contentWrapper}>
@@ -148,10 +143,11 @@ const SecondStepForm = () => {
                       nowrap
                       className={classNames(cls.inputText, cls.text1)}
                     >
-                      {"Название компании"}
+                      {"Company Name"}
                     </Typography.IbmPlexMono>
                     <Input
                       allowClear
+                      placeholder="Google"
                       size="large"
                       variant="outlined"
                       value={el.name}
@@ -170,10 +166,11 @@ const SecondStepForm = () => {
                       nowrap
                       className={classNames(cls.inputText, cls.text1)}
                     >
-                      {"Должность"}
+                      {"Position"}
                     </Typography.IbmPlexMono>
                     <Input
                       allowClear
+                      placeholder="lead designer"
                       size="large"
                       variant="outlined"
                       value={el.role}
@@ -194,14 +191,14 @@ const SecondStepForm = () => {
                       nowrap
                       className={classNames(cls.inputText, cls.text1)}
                     >
-                      {"Начало работы"}
+                      {"Start Date"}
                     </Typography.IbmPlexMono>
                     <DatePicker
                       width={'100%'}
                       style={{
                         width: '100%'
                       }}
-                      placeholder={"С"}
+                      placeholder={"From"}
                       format="MM.DD.YYYY"
                       size="large"
                       value={
@@ -233,14 +230,14 @@ const SecondStepForm = () => {
                       nowrap
                       className={classNames(cls.inputText, cls.text1)}
                     >
-                      {"Окончание работы"}
+                      {"End Date"}
                     </Typography.IbmPlexMono>
                     <DatePicker
                       width={'100%'}
                       style={{
                         width: '100%'
                       }}
-                      placeholder={"По"}
+                      placeholder={"To"}
                       format="MM.DD.YYYY"
                       size="large"
                       value={
@@ -272,10 +269,11 @@ const SecondStepForm = () => {
                     nowrap
                     className={classNames(cls.inputText, cls.text1)}
                   >
-                    {"Описание"}
+                    {"Description"}
                   </Typography.IbmPlexMono>
                   <TextArea
                     style={{ width: '100%', height: 170, resize: "none" }}
+                    placeholder="Describe your responsibilities and achievements..."
                     value={el.description}
                     onChange={(e) =>
                       handleWritedata({
@@ -292,12 +290,12 @@ const SecondStepForm = () => {
           ))}
         </div>
         <div className={cls.addWorkExpirience}>
-          <Button
+          <button
             className={cls.addWorkExpirienceButton}
             onClick={() => onAddWorkButtonClick()}
           >
-            +Добавить место работы
-          </Button>
+            + Add another job
+          </button>
         </div>
 
         <div className={cls.stepsNext}>

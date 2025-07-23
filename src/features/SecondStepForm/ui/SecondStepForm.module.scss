@@ -8,13 +8,13 @@
   .mainWrapper {
     width: 820px;
     display: flex;
+    gap: 30px;
     flex-direction: column;
     padding: 12px;
     border-radius: 20px;
     // background: linear-gradient(to right, rgb(255, 204, 178), rgb(204, 204, 255));
     background-color: white;
     box-shadow: 0px 0px 20px 1px gray;
-    max-height: 80vh;
   }
   
   .scrollArea {
@@ -22,11 +22,16 @@
     display: flex;
     flex-direction: column;
     overflow-y: auto;
+    border: 2px solid rgb(229, 231, 235);
+    border-radius: 16px;
+    padding: 16px;
   }
   
   .textWrapper {
+  margin-top: 30px;
     display: flex;
     flex-direction: column;
+    gap: 10px;
     width: 100%;
     justify-content: center;
     align-items: center;
@@ -35,8 +40,9 @@
   
   .headText {
     font-weight: 600;
-    font-size: 27px;
-    color: black;
+    font-size: 30px;
+    color: #1e293b;
+    line-height: 28px;
   }
   
   .subtitleText {
@@ -72,9 +78,35 @@
     align-items: center;
   }
   
-  .inputText {
-    color: gray;
-  }
+.inputText {
+  color: rgb(55 65 81);
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 4px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+:global(.addWorkExpirienceButton.ant-btn),
+:global(.ant-input),
+:global(.ant-input-affix-wrapper),
+:global(.ant-picker),
+:global(.ant-input-number),
+:global(.ant-select-selector) {
+  font-size: 16px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: rgb(55 65 81);
+  font-weight: 500;
+  border-radius: 8px;
+  padding: 16px 20px;
+  box-sizing: border-box;
+  background-color:#f9fafb;
+}
+
+:global(.ant-input::placeholder),
+:global(.ant-select-selection-placeholder) {
+  color: #9ca3af !important;
+  opacity: 1;
+}
   
   .stepsNext {
     margin-top: 24px;
@@ -112,16 +144,38 @@
     margin-top: 12px;
   }
 
-  .addWorkExpirienceButton {
-    width: 100%;
-  }
-
+.addWorkExpirienceButton {
+  width: 100%;
+  
+  border: 2px dashed #d1d5db;
+  background-color: transparent;
+  color: #4b5563;
+  padding: 12px 24px 12px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 18px;
+}
+.addWorkExpirienceButton:hover {
+  background-color: #f3f4f6;
+ border: 2px dashed #7C3AED; 
+ color: #7C3AED;
+ transition: 300ms;
+}
   .crossButtonWrapper {
     width: 100%;
     display: flex;
     justify-content: end;
     align-items: center;
     height: 20px;
+  }
+
+  .crossButton {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    width: 40px;
+    color: #757575;
+    font-size: 18px;
   }
 
   .required {

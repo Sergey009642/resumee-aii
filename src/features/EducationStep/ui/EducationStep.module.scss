@@ -1,27 +1,29 @@
 .container {
   width: 100%;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .mainWrapper {
-  width: 820px;
+  width: 100%;
+  max-width: 800px;
   display: flex;
   flex-direction: column;
-  padding: 12px;
-  border-radius: 20px;
-  // background: linear-gradient(to right, rgb(255, 204, 178), rgb(204, 204, 255));
-  background-color: white;
-  box-shadow: 0px 0px 20px 1px gray;
-  max-height: 80vh;
+  padding: 40px;
+  border-radius: 40px;
+  background: white;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+
+  @media screen and (max-width: 768px) {
+    padding: 24px;
+    margin: 12px;
+  }
 }
 
 .scrollArea {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  overflow-y: auto;
 }
 
 .textWrapper {
@@ -31,18 +33,45 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+  margin-bottom: 40px;
 }
 
 .headText {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
   font-weight: 600;
-  font-size: 27px;
-  color: black;
+  font-size: 28px;
+  color: #1a1a1a;
+  line-height: 1.2;
+  background-color: #f5f4f4;
+  padding: 40px 40px;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  margin: -40px -40px 24px -40px;
+  width: calc(100% + 80px);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  img{
+    width: 32px;
+    height: 32px;
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 24px;
+    margin: -24px -24px 20px -24px;
+    width: calc(100% + 50px);
+    padding: 20px 24px;
+  }
 }
 
 .subtitleText {
   font-weight: 400;
   font-size: 18px;
-  color: gray;
+  color: rgb(107, 114, 128);
+  line-height: 1.5;
+  max-width: 500px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .scrollArea {
@@ -53,10 +82,19 @@
 }
 
 .stepsNext {
-  margin-top: 24px;
+  margin-top: 40px;
   display: flex;
-  justify-content: end;
-  gap: 6px;
+  justify-content: flex-end;
+  gap: 12px;
+  padding-top: 24px;
+  border-top: 1px solid #e5e7eb;
+
+  @media screen and (max-width: 480px) {
+    justify-content: stretch;
+    button {
+      flex: 1;
+    }
+  }
 }
 
 .addWorkExpirience {
@@ -66,6 +104,19 @@
 
 .addWorkExpirienceButton {
   width: 100%;
+  border: 2px dashed #d1d5db;
+  background-color: transparent;
+  color: #4b5563;
+  padding: 12px 24px 12px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 18px;
+  transition: 300ms;
+}
+.addWorkExpirienceButton:hover {
+  background-color: #f3f4f6;
+  border: 2px dashed #7C3AED;
+  color: #7C3AED;
 }
 
 .educationWrapper {
@@ -83,7 +134,11 @@
 }
 
 .inputText {
-  color: gray;
+  color: rgb(55 65 81);
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 4px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .wholeLine {
@@ -96,4 +151,27 @@
   justify-content: end;
   align-items: center;
   height: 20px;
+}
+
+
+.headTextTitle{
+  font-weight: bold;
+  font-size: 28px;
+  color: #1a1a1a;
+  line-height: 1.2;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.input{
+  padding: 16px 20px 16px 20px;
+}
+.select {
+  width: 100%;
+}
+
+:global(.select .ant-select-selector) {
+  padding: 28px 20px 28px 20px !important;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
 }

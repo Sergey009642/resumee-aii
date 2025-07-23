@@ -11,19 +11,19 @@ import { ResumeData } from "@entities/resumes/ResumeTemplate1/api/types";
 export const selectOption = [
   {
     value: "bachelor",
-    label: "Бакалавриат",
+    label: "Bachelor's Degree",
   },
   {
     value: "master",
-    label: "Магистратура",
+    label: "Master's Degree",
   },
   {
     value: "specialist",
-    label: "Специалитет",
+    label: "Specialist Degree",
   },
   {
     value: "doctor",
-    label: "Доктор наук",
+    label: "Doctor of Science",
   },
 ];
 
@@ -48,11 +48,14 @@ const EducationStep = () => {
     <div className={cls.container}>
       <div className={cls.mainWrapper}>
         <div className={cls.textWrapper}>
-          <Typography.Ubuntu className={cls.headText}>
-            Информация об образовании
-          </Typography.Ubuntu>
+          <div className={cls.headText}>
+            <img src="/ed.png" alt="" />
+            <h1 className={cls.headTextTitle}>
+              Education Details
+            </h1>
+          </div>
           <Typography.Ubuntu className={cls.subtitleText}>
-            Введите основную информацию об образовании
+            Provide your educational background to highlight your qualifications.
           </Typography.Ubuntu>
         </div>
         <div className={cls.scrollArea}>
@@ -78,12 +81,14 @@ const EducationStep = () => {
                     nowrap
                     className={classNames(cls.inputText, cls.text1)}
                   >
-                    {"Наименование учебного заведения"}
+                    {"Name of Institution"}
                   </Typography.IbmPlexMono>
                   <Input
+                    className={cls.input}
                     allowClear
                     size="large"
                     variant="outlined"
+                    placeholder="e.g., University of California"
                     value={el.name}
                     onChange={(e) =>
                       handleWritedata({
@@ -100,10 +105,12 @@ const EducationStep = () => {
                     nowrap
                     className={classNames(cls.inputText, cls.text1)}
                   >
-                    {"Факультет"}
+                    {"Faculty"}
                   </Typography.IbmPlexMono>
                   <Input
+                    className={cls.input}
                     allowClear
+                    placeholder="e.g., School of Engineering"
                     size="large"
                     variant="outlined"
                     value={el.faculty}
@@ -122,10 +129,12 @@ const EducationStep = () => {
                     nowrap
                     className={classNames(cls.inputText, cls.text1)}
                   >
-                    {"Специализация"}
+                    {"Specialization"}
                   </Typography.IbmPlexMono>
                   <Input
+                    className={cls.input}
                     allowClear
+                    placeholder="e.g., Computer Science"
                     size="large"
                     variant="outlined"
                     value={el.speciality}
@@ -144,9 +153,10 @@ const EducationStep = () => {
                     nowrap
                     className={classNames(cls.inputText, cls.text1)}
                   >
-                    {"Уровень"}
+                    {"Level"}
                   </Typography.IbmPlexMono>
                   <Select
+                    className="select"
                     allowClear
                     size="large"
                     variant="outlined"
@@ -167,9 +177,10 @@ const EducationStep = () => {
                     nowrap
                     className={classNames(cls.inputText, cls.text1)}
                   >
-                    {"Год окончания"}
+                    {"Graduation Year"}
                   </Typography.IbmPlexMono>
                   <DatePicker
+                    className={cls.input}
                     width={"100%"}
                     picker="year"
                     style={{
@@ -201,7 +212,7 @@ const EducationStep = () => {
             className={cls.addWorkExpirienceButton}
             onClick={() => handleAddEducation()}
           >
-            +Добавить место учёбы
+            + Add another place of study
           </Button>
         </div>
 
