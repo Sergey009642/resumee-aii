@@ -16,20 +16,21 @@ const { $handleResumeStepChange } = StepFormSlice.actions;
 
 function ResumeStepper() {
   const current = useAtomValue($currentResumeStep);
-  // const [current, setCurrent] = useState(0);
-
   const setCurrent = useSetAtom($handleResumeStepChange);
+  const isLastStep = current === StepperContent.length - 1;
   return (
-      <div className={cls.ResumeStepperWrap}>
-      <div className={cls.stepperContainer}>
-        <Steps 
-          current={current} 
-          onChange={setCurrent}
-          items={StepsConfig}
-          size="default"
-          labelPlacement="vertical"
-        />
-      </div>
+    <div className={cls.ResumeStepperWrap}>
+      {!isLastStep && (
+        <div className={cls.stepperContainer}>
+          <Steps 
+            current={current} 
+            onChange={setCurrent}
+            items={StepsConfig}
+            size="default"
+            labelPlacement="vertical"
+          />
+        </div>
+      )}
       {StepperContent[current]}
     </div>
   );
