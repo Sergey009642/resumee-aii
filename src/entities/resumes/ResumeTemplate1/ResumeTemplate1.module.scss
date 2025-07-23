@@ -62,16 +62,13 @@
     align-items: center;
     text-align: center;
 }
-@media (max-width: 768px) {
-    .profilePhotoClassic {
-        width: 80px;
-        height: 80px;
-    }
-}
+
 @media (max-width: 1280px) {
     .profilePhotoClassic {
-        width: 100px;
-        height: 100px;
+        width: 90px;
+        height: 90px;
+        font-size: 10px;
+        color:#313131;
     }
 }
 @media (min-width: 1500px) {
