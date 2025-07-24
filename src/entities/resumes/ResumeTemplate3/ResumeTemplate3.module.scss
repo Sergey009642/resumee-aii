@@ -1,0 +1,244 @@
+.gridLayout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto auto;
+  grid-template-areas:
+    "header header"
+    "summary experience"
+    "skills education";
+  gap: 18px;
+}
+.gridHeader {
+  grid-area: header;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 32px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px #cbd5e122;
+  padding: 20px 18px 16px 18px;
+}
+.gridSummary {
+  grid-area: summary;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px #cbd5e122;
+  padding: 20px 18px 16px 18px;
+}
+.gridExperience {
+  grid-area: experience;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px #cbd5e122;
+  padding: 20px 18px 16px 18px;
+}
+.gridSkills {
+  grid-area: skills;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px #cbd5e122;
+  padding: 20px 18px 16px 18px;
+}
+.gridEducation {
+  grid-area: education;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px #cbd5e122;
+  padding: 20px 18px 16px 18px;
+}
+
+@media (max-width: 900px) {
+  .gridLayout {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "summary"
+      "experience"
+      "skills"
+      "education";
+  }
+}
+.template3 {
+  background: linear-gradient(135deg, #f3f4f6 60%, #e0e7ef 100%);
+  min-height: 800px;
+  padding: 32px 16px;
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 18px;
+  box-shadow: 0 4px 32px 0 rgba(55,65,81,0.10);
+  font-family: 'Inter', Arial, sans-serif;
+  color: #1e293b;
+}
+
+.headerBlock {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 32px;
+  margin-bottom: 24px;
+}
+.headerPhotoWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.headerInfo {
+  flex: 1;
+  min-width: 220px;
+}
+.contact {
+  font-size: 15px;
+  color: #64748b;
+  margin-top: 6px;
+}
+.section {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px #cbd5e122;
+  padding: 20px 18px 16px 18px;
+  margin-bottom: 18px;
+}
+.section h3 {
+  color: #334155;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  font-family: 'Inter', Arial, sans-serif;
+  letter-spacing: 0.5px;
+}
+.summary {
+  font-size: 15px;
+  color: #1e293b;
+  margin-bottom: 4px;
+}
+.timelineWrap {
+  margin-top: 8px;
+}
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 18px;
+  border-left: 2px solid #cbd5e1;
+}
+.timelineItem {
+  position: relative;
+  margin-bottom: 18px;
+}
+.timelineDot {
+  position: absolute;
+  left: -11px;
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  background: #64748b;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 2px #cbd5e1;
+}
+.timelineContent {
+  margin-left: 16px;
+}
+.expTitle {
+  font-weight: 600;
+  font-size: 15px;
+}
+.expCompany {
+  color: #64748b;
+  font-weight: 400;
+}
+.expPeriod {
+  font-size: 13px;
+  color: #64748b;
+  margin-bottom: 2px;
+}
+.expDesc {
+  font-size: 13px;
+  color: #1e293b;
+  margin-bottom: 4px;
+}
+.achievementsList {
+  margin: 0;
+  padding-left: 18px;
+  color: #334155;
+  font-size: 13px;
+}
+.skillsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.skillBadge {
+  background: #e0e7ef;
+  color: #334155;
+  border-radius: 8px;
+  padding: 4px 12px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Inter', Arial, sans-serif;
+}
+.eduCards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.eduCard {
+  background: #e0e7ef;
+  border-radius: 10px;
+  padding: 10px 14px;
+  min-width: 180px;
+  margin-bottom: 0;
+  box-shadow: 0 2px 8px #cbd5e122;
+}
+.eduName {
+  font-weight: 600;
+  font-size: 14px;
+}
+.eduFaculty {
+  font-size: 13px;
+  color: #64748b;
+}
+.eduPeriod {
+  font-size: 12px;
+  color: #1e293b;
+}
+.emptyText {
+  color: #cbd5e1;
+  font-size: 14px;
+}
+
+@media (max-width: 900px) {
+  .headerBlock {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .section {
+    padding: 12px 4px 8px 4px;
+  }
+  .eduCards {
+    gap: 6px;
+  }
+}
+
+.template3 h1 {
+  color: #334155;
+}
+
+.template3 h2 {
+  color: #64748b;
+}
+
+.template3 .photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #64748b;
+  box-shadow: 0 2px 8px #cbd5e133;
+}
+
+@media (max-width: 600px) {
+  .template3 {
+    padding: 16px 4px;
+  }
+}

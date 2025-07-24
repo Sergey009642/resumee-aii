@@ -1,0 +1,324 @@
+.timelineTemplate {
+  background: linear-gradient(135deg, #fff7e6 60%, #ffe0b2 100%);
+  min-height: 800px;
+  padding: 32px 16px;
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 18px;
+  box-shadow: 0 4px 32px 0 rgba(234,88,12,0.10);
+  font-family: 'Inter', Arial, sans-serif;
+  color: #ea580c;
+}
+.timelineHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 32px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px #fdba4e22;
+  padding: 24px 28px;
+  margin-bottom: 32px;
+}
+.timelinePhotoWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.timelineHeaderInfo {
+  flex: 1;
+  min-width: 220px;
+}
+.timelineContact {
+  font-size: 15px;
+  color: #ea580c;
+  margin-top: 6px;
+}
+.timelineBody {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 400px;
+}
+.timelineLine {
+  position: absolute;
+  left: 32px;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, #ea580c 0%, #ffe0b2 100%);
+  border-radius: 2px;
+  z-index: 0;
+}
+.timelineEvents {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  margin-left: 0;
+}
+.timelineEvent {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  position: relative;
+  z-index: 1;
+}
+.timelineDot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #ea580c;
+  border: 4px solid #fff7e6;
+  margin-right: 24px;
+  margin-left: 20px;
+  box-shadow: 0 2px 8px #fdba4e33;
+  flex-shrink: 0;
+}
+.timelineContent {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px #fdba4e22;
+  padding: 18px 20px 14px 20px;
+  min-width: 220px;
+  max-width: 600px;
+  flex: 1;
+}
+.timelineTitle {
+  font-weight: 600;
+  font-size: 15px;
+}
+.timelineCompany {
+  color: #fb923c;
+  font-weight: 400;
+}
+.timelinePeriod {
+  font-size: 13px;
+  color: #ea580c;
+  margin-bottom: 2px;
+}
+.timelineDesc {
+  font-size: 13px;
+  color: #ea580c;
+  margin-bottom: 4px;
+}
+.timelineAchievements {
+  margin: 0;
+  padding-left: 18px;
+  color: #ea580c;
+  font-size: 13px;
+}
+.timelineFaculty {
+  font-size: 13px;
+  color: #ea580c;
+}
+.timelineSkillsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.timelineSkillBadge {
+  background: #ffe0b2;
+  color: #ea580c;
+  border-radius: 8px;
+  padding: 4px 12px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Inter', Arial, sans-serif;
+}
+.timelineEmptyText {
+  color: #ffe0b2;
+  font-size: 14px;
+}
+.timelinePhoto {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #ea580c;
+  box-shadow: 0 2px 8px #fdba4e33;
+}
+@media (max-width: 900px) {
+  .timelineHeader {
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px 8px;
+  }
+  .timelineContent {
+    padding: 12px 8px 8px 8px;
+    min-width: 120px;
+  }
+  .timelineDot {
+    margin-left: 8px;
+    margin-right: 12px;
+  }
+}
+@media (max-width: 600px) {
+  .timelineTemplate {
+    padding: 16px 4px;
+  }
+  .timelineContent {
+    max-width: 98vw;
+  }
+}
+.template5 {
+  background: linear-gradient(135deg, #fff7e6 60%, #ffe0b2 100%);
+  min-height: 800px;
+  padding: 32px 16px;
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 18px;
+  box-shadow: 0 4px 32px 0 rgba(234,88,12,0.10);
+  font-family: 'Inter', Arial, sans-serif;
+  color: #ea580c;
+}
+
+.header5 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 32px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px #fdba4e22;
+  padding: 24px 28px;
+  margin-bottom: 32px;
+}
+.headerPhotoWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.headerInfo {
+  flex: 1;
+  min-width: 220px;
+}
+.contact {
+  font-size: 15px;
+  color: #ea580c;
+  margin-top: 6px;
+}
+.cardsWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: stretch;
+}
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px #fdba4e22;
+  padding: 22px 20px 18px 20px;
+  flex: 1 1 320px;
+  min-width: 260px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0;
+}
+.card h3 {
+  color: #ea580c;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  font-family: 'Inter', Arial, sans-serif;
+  letter-spacing: 0.5px;
+}
+.skillsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.skillBadge {
+  background: #ffe0b2;
+  color: #ea580c;
+  border-radius: 8px;
+  padding: 4px 12px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Inter', Arial, sans-serif;
+}
+.expItem {
+  margin-bottom: 14px;
+}
+.expTitle {
+  font-weight: 600;
+  font-size: 15px;
+}
+.expCompany {
+  color: #fb923c;
+  font-weight: 400;
+}
+.expPeriod {
+  font-size: 13px;
+  color: #ea580c;
+  margin-bottom: 2px;
+}
+.expDesc {
+  font-size: 13px;
+  color: #ea580c;
+  margin-bottom: 4px;
+}
+.achievementsList {
+  margin: 0;
+  padding-left: 18px;
+  color: #ea580c;
+  font-size: 13px;
+}
+.eduItem {
+  margin-bottom: 8px;
+}
+.eduName {
+  font-weight: 600;
+  font-size: 14px;
+}
+.eduFaculty {
+  font-size: 13px;
+  color: #ea580c;
+}
+.eduPeriod {
+  font-size: 12px;
+  color: #ea580c;
+}
+.emptyText {
+  color: #ffe0b2;
+  font-size: 14px;
+}
+
+@media (max-width: 900px) {
+  .header5 {
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px 8px;
+  }
+  .cardsWrapper {
+    gap: 12px;
+  }
+  .card {
+    padding: 14px 8px 10px 8px;
+    min-width: 180px;
+  }
+}
+
+.template5 h1 {
+  color: #ea580c;
+}
+
+.template5 h2 {
+  color: #fb923c;
+}
+
+.template5 .photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #ea580c;
+  box-shadow: 0 2px 8px #fdba4e33;
+}
+
+@media (max-width: 600px) {
+  .template5 {
+    padding: 16px 4px;
+  }
+}

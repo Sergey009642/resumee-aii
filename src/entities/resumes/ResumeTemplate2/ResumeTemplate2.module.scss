@@ -1,0 +1,239 @@
+.sidebarLayout {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+}
+.sidebar {
+  width: 220px;
+  min-width: 180px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px #4dd0e122;
+  padding: 28px 18px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+.photoWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+.sidebarSection {
+  width: 100%;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #009688;
+  margin-bottom: 2px;
+}
+.role {
+  font-size: 1rem;
+  color: #00695c;
+  margin-bottom: 2px;
+}
+.mainContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.section {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px #4dd0e122;
+  padding: 22px 20px 18px 20px;
+  margin-bottom: 0;
+}
+.section h3 {
+  color: #009688;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  font-family: 'Inter', Arial, sans-serif;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 900px) {
+  .sidebarLayout {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .sidebar {
+    width: 100%;
+    min-width: 0;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 12px 6px;
+    gap: 12px;
+  }
+  .mainContent {
+    padding: 0;
+  }
+}
+.template2 {
+  background: linear-gradient(135deg, #e0f7fa 60%, #a7ffeb 100%);
+  min-height: 800px;
+  padding: 32px 16px;
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 18px;
+  box-shadow: 0 4px 32px 0 rgba(0,150,136,0.10);
+  font-family: 'Inter', Arial, sans-serif;
+  color: #004d40;
+}
+
+.headerCard {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 32px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px #4dd0e122;
+  padding: 24px 28px;
+  margin-bottom: 32px;
+}
+.headerLeft {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.headerRight {
+  flex: 1;
+  min-width: 220px;
+}
+.contact {
+  font-size: 15px;
+  color: #009688;
+  margin-top: 6px;
+}
+.cardsWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: stretch;
+}
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px #4dd0e122;
+  padding: 22px 20px 18px 20px;
+  flex: 1 1 320px;
+  min-width: 260px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0;
+}
+.card h3 {
+  color: #009688;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  font-family: 'Inter', Arial, sans-serif;
+  letter-spacing: 0.5px;
+}
+.skillsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.skillBadge {
+  background: #b2fef7;
+  color: #009688;
+  border-radius: 8px;
+  padding: 4px 12px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Inter', Arial, sans-serif;
+}
+.expItem {
+  margin-bottom: 14px;
+}
+.expTitle {
+  font-weight: 600;
+  font-size: 15px;
+}
+.expCompany {
+  color: #26c6da;
+  font-weight: 400;
+}
+.expPeriod {
+  font-size: 13px;
+  color: #009688;
+  margin-bottom: 2px;
+}
+.expDesc {
+  font-size: 13px;
+  color: #004d40;
+  margin-bottom: 4px;
+}
+.achievementsList {
+  margin: 0;
+  padding-left: 18px;
+  color: #00897b;
+  font-size: 13px;
+}
+.eduItem {
+  margin-bottom: 8px;
+}
+.eduName {
+  font-weight: 600;
+  font-size: 14px;
+}
+.eduFaculty {
+  font-size: 13px;
+  color: #009688;
+}
+.eduPeriod {
+  font-size: 12px;
+  color: #004d40;
+}
+.emptyText {
+  color: #b2dfdb;
+  font-size: 14px;
+}
+
+@media (max-width: 900px) {
+  .headerCard {
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px 8px;
+  }
+  .cardsWrapper {
+    gap: 12px;
+  }
+  .card {
+    padding: 14px 8px 10px 8px;
+    min-width: 180px;
+  }
+}
+
+.template2 h1 {
+  color: #009688;
+}
+
+.template2 h2 {
+  color: #00695c;
+}
+
+.template2 .photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #009688;
+  box-shadow: 0 2px 8px #4dd0e133;
+}
+
+@media (max-width: 600px) {
+  .template2 {
+    padding: 16px 4px;
+  }
+}

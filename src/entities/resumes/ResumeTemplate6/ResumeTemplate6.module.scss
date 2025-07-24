@@ -1,0 +1,481 @@
+.overlapSections {
+  position: relative;
+  margin-top: -24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+}
+.overlapSection {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px #c026d322;
+  padding: 28px 24px 20px 24px;
+  width: 80%;
+  margin-left: 10%;
+  margin-bottom: -32px;
+  position: relative;
+  z-index: 1;
+  transition: box-shadow 0.2s, transform 0.2s;
+  border-left: 8px solid #a21caf;
+}
+.overlapSectionSummary {
+  border-left-color: #f472b6;
+  transform: translateY(0px) rotate(-2deg);
+  z-index: 2;
+}
+.overlapSectionExperience {
+  border-left-color: #a21caf;
+  transform: translateY(24px) rotate(2deg);
+  z-index: 3;
+}
+.overlapSectionSkills {
+  border-left-color: #f3e8ff;
+  transform: translateY(48px) rotate(-1.5deg);
+  z-index: 4;
+}
+.overlapSectionEducation {
+  border-left-color: #c026d3;
+  transform: translateY(72px) rotate(1.5deg);
+  z-index: 5;
+  margin-bottom: 0;
+}
+.overlapSection:hover, .overlapSection:focus-within {
+  z-index: 10;
+  box-shadow: 0 8px 32px #c026d344;
+  transform: scale(1.02) translateY(var(--y, 0));
+}
+@media (max-width: 900px) {
+  .overlapSections {
+    margin-top: -12px;
+  }
+  .overlapSection {
+    width: 98%;
+    margin-left: 0;
+    margin-bottom: -16px;
+    padding: 16px 8px 12px 8px;
+    transform: none !important;
+    position: relative;
+  }
+  .overlapSectionSummary, .overlapSectionExperience, .overlapSectionSkills, .overlapSectionEducation {
+    z-index: auto;
+    border-left-width: 6px;
+  }
+}
+@media (max-width: 600px) {
+  .overlapSection {
+    width: 99%;
+    margin-left: 0;
+    margin-bottom: -8px;
+    padding: 10px 2px 6px 2px;
+  }
+}
+.overlapTemplate {
+  background: linear-gradient(135deg, #fce7f3 60%, #f3e8ff 100%);
+  min-height: 800px;
+  padding: 32px 16px;
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 18px;
+  box-shadow: 0 4px 32px 0 rgba(162,28,175,0.10);
+  font-family: 'Inter', Arial, sans-serif;
+  color: #a21caf;
+  position: relative;
+}
+// Header: photo floats left, never overlaps text
+// Header: photo floats left, with gradient circle, name/role styled
+.overlapHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 40px;
+  background: #fff;
+  border-radius: 22px;
+  box-shadow: 0 4px 24px #c026d322;
+  padding: 40px 48px 36px 48px;
+  margin-bottom: 0;
+  position: relative;
+  z-index: 3;
+  top: 32px;
+  left: 32px;
+  width: 80%;
+}
+.overlapPhotoWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-right: 40px;
+  z-index: 4;
+}
+.overlapPhotoWrap::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 148px;
+  height: 148px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 60% 40%, #f3e8ff 60%, #c026d3 100%);
+  z-index: 1;
+  filter: blur(2px) brightness(1.12);
+}
+.overlapPhoto {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #a21caf;
+  box-shadow: 0 4px 24px #c026d333;
+  background: #f3e8ff;
+  position: relative;
+  z-index: 2;
+}
+.overlapHeaderInfo {
+  flex: 1;
+  min-width: 220px;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.overlapHeaderInfo h1 {
+  color: #a21caf;
+  font-size: 2.1rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid #f3e8ff;
+  padding-bottom: 4px;
+  margin-bottom: 2px;
+  width: fit-content;
+  background: linear-gradient(90deg, #a21caf 60%, #c026d3 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.overlapHeaderInfo h2 {
+  color: #c026d3;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+.overlapContact {
+  font-size: 15px;
+  color: #a21caf;
+  margin-top: 6px;
+}
+// Overlap body uses flex for stacking, cards overlap with translateY, not absolute, for better responsiveness
+.overlapBody {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  margin-top: 80px;
+  min-height: 400px;
+  position: relative;
+}
+.overlapCard {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px #c026d322;
+  padding: 28px 24px 20px 24px;
+  width: 75%;
+  margin-left: 12%;
+  margin-bottom: -48px;
+  position: relative;
+  z-index: 1;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.overlapSummary {
+  transform: translateY(0px);
+  z-index: 2;
+}
+.overlapExperience {
+  transform: translateY(32px);
+  z-index: 3;
+}
+.overlapSkills {
+  transform: translateY(64px);
+  z-index: 4;
+}
+.overlapEducation {
+  transform: translateY(96px);
+  z-index: 5;
+  margin-bottom: 0;
+}
+// On hover/focus, bring card to front
+.overlapCard:hover, .overlapCard:focus-within {
+  z-index: 10;
+  box-shadow: 0 8px 32px #c026d344;
+  transform: scale(1.02) translateY(var(--y, 0));
+}
+.expItem {
+  margin-bottom: 14px;
+}
+.expTitle {
+  font-weight: 600;
+  font-size: 15px;
+}
+.expCompany {
+  color: #c026d3;
+  font-weight: 400;
+}
+.expPeriod {
+  font-size: 13px;
+  color: #a21caf;
+  margin-bottom: 2px;
+}
+.expDesc {
+  font-size: 13px;
+  color: #a21caf;
+  margin-bottom: 4px;
+}
+.achievementsList {
+  margin: 0;
+  padding-left: 18px;
+  color: #a21caf;
+  font-size: 13px;
+}
+.skillsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.skillBadge {
+  background: #f3e8ff;
+  color: #a21caf;
+  border-radius: 8px;
+  padding: 4px 12px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Inter', Arial, sans-serif;
+}
+.eduItem {
+  margin-bottom: 8px;
+}
+.eduName {
+  font-weight: 600;
+  font-size: 14px;
+}
+.eduFaculty {
+  font-size: 13px;
+  color: #a21caf;
+}
+.eduPeriod {
+  font-size: 12px;
+  color: #a21caf;
+}
+.emptyText {
+  color: #f3e8ff;
+  font-size: 14px;
+}
+@media (max-width: 900px) {
+  .overlapHeader {
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px 8px;
+    left: 0;
+    width: 98%;
+    top: 16px;
+  }
+  .overlapPhotoWrap {
+    margin-right: 0;
+    margin-bottom: 12px;
+  }
+  .overlapPhotoWrap::before {
+    width: 120px;
+    height: 120px;
+  }
+  .overlapBody {
+    margin-top: 40px;
+    gap: 0;
+  }
+  .overlapCard {
+    width: 98%;
+    margin-left: 0;
+    margin-bottom: -32px;
+    padding: 16px 8px 12px 8px;
+    transform: none !important;
+    position: relative;
+  }
+  .overlapSummary, .overlapExperience, .overlapSkills, .overlapEducation {
+    z-index: auto;
+  }
+}
+@media (max-width: 600px) {
+  .overlapTemplate {
+    padding: 8px 2px;
+  }
+  .overlapHeader {
+    padding: 8px 2px;
+  }
+  .overlapCard {
+    width: 99%;
+    margin-left: 0;
+    margin-bottom: -18px;
+    padding: 10px 2px 6px 2px;
+  }
+}
+.template6 {
+  background: linear-gradient(135deg, #fce7f3 60%, #f3e8ff 100%);
+  min-height: 800px;
+  padding: 32px 16px;
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 18px;
+  box-shadow: 0 4px 32px 0 rgba(162,28,175,0.10);
+  font-family: 'Inter', Arial, sans-serif;
+  color: #a21caf;
+}
+
+.header6 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 32px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px #f472b622;
+  padding: 24px 28px;
+  margin-bottom: 32px;
+}
+.headerPhotoWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.headerInfo {
+  flex: 1;
+  min-width: 220px;
+}
+.contact {
+  font-size: 15px;
+  color: #a21caf;
+  margin-top: 6px;
+}
+.cardsWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: stretch;
+}
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px #f472b622;
+  padding: 22px 20px 18px 20px;
+  flex: 1 1 320px;
+  min-width: 260px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0;
+}
+.card h3 {
+  color: #a21caf;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  font-family: 'Inter', Arial, sans-serif;
+  letter-spacing: 0.5px;
+}
+.skillsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.skillBadge {
+  background: #f3e8ff;
+  color: #a21caf;
+  border-radius: 8px;
+  padding: 4px 12px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Inter', Arial, sans-serif;
+}
+.expItem {
+  margin-bottom: 14px;
+}
+.expTitle {
+  font-weight: 600;
+  font-size: 15px;
+}
+.expCompany {
+  color: #c026d3;
+  font-weight: 400;
+}
+.expPeriod {
+  font-size: 13px;
+  color: #a21caf;
+  margin-bottom: 2px;
+}
+.expDesc {
+  font-size: 13px;
+  color: #a21caf;
+  margin-bottom: 4px;
+}
+.achievementsList {
+  margin: 0;
+  padding-left: 18px;
+  color: #a21caf;
+  font-size: 13px;
+}
+.eduItem {
+  margin-bottom: 8px;
+}
+.eduName {
+  font-weight: 600;
+  font-size: 14px;
+}
+.eduFaculty {
+  font-size: 13px;
+  color: #a21caf;
+}
+.eduPeriod {
+  font-size: 12px;
+  color: #a21caf;
+}
+.emptyText {
+  color: #f3e8ff;
+  font-size: 14px;
+}
+
+@media (max-width: 900px) {
+  .header6 {
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px 8px;
+  }
+  .cardsWrapper {
+    gap: 12px;
+  }
+  .card {
+    padding: 14px 8px 10px 8px;
+    min-width: 180px;
+  }
+}
+
+.template6 h1 {
+  color: #a21caf;
+}
+
+.template6 h2 {
+  color: #c026d3;
+}
+
+.template6 .photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #a21caf;
+  box-shadow: 0 2px 8px #f472b633;
+}
+
+@media (max-width: 600px) {
+  .template6 {
+    padding: 16px 4px;
+  }
+}
