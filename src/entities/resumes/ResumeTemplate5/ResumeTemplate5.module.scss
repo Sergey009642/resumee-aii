@@ -137,6 +137,9 @@
   object-fit: cover;
   border: 4px solid #ea580c;
   box-shadow: 0 2px 8px #fdba4e33;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 @media (max-width: 900px) {
   .timelineHeader {

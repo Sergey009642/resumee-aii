@@ -47,27 +47,43 @@
 }
 @media (max-width: 900px) {
   .overlapSections {
-    margin-top: -12px;
+    margin-top: 0;
+    gap: 22px;
   }
   .overlapSection {
-    width: 98%;
+    width: 100%;
     margin-left: 0;
-    margin-bottom: -16px;
-    padding: 16px 8px 12px 8px;
-    transform: none !important;
+    margin-bottom: 0;
+    padding: 20px 10px 16px 10px;
+    border-left-width: 4px;
+    box-shadow: 0 2px 8px #c026d322;
     position: relative;
+    transform: none !important;
   }
   .overlapSectionSummary, .overlapSectionExperience, .overlapSectionSkills, .overlapSectionEducation {
     z-index: auto;
-    border-left-width: 6px;
+    border-left-width: 4px;
+    transform: none !important;
+    margin-bottom: 0;
+    /* Remove all rotation and overlap for mobile */
   }
 }
 @media (max-width: 600px) {
+  .overlapSections {
+    gap: 14px;
+  }
   .overlapSection {
-    width: 99%;
+    width: 100%;
     margin-left: 0;
-    margin-bottom: -8px;
-    padding: 10px 2px 6px 2px;
+    margin-bottom: 0;
+    padding: 12px 2px 10px 2px;
+    border-left-width: 3px;
+    box-shadow: 0 1px 4px #c026d322;
+  }
+  .overlapSectionSummary, .overlapSectionExperience, .overlapSectionSkills, .overlapSectionEducation {
+    border-left-width: 3px;
+    transform: none !important;
+    margin-bottom: 0;
   }
 }
 .overlapTemplate {
@@ -472,6 +488,9 @@
   object-fit: cover;
   border: 4px solid #a21caf;
   box-shadow: 0 2px 8px #f472b633;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (max-width: 600px) {
