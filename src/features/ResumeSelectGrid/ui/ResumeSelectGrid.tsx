@@ -1,5 +1,4 @@
-
-import {  faBriefcase, faCircleCheck, faCode, faGraduationCap, faPalette, faStar,  } from "@fortawesome/free-solid-svg-icons";
+import { faBriefcase, faCircleCheck, faCode, faGraduationCap, faPalette, faStar, } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { extractJsonFromMarkdown } from "@shared/lib/extractJsonFromMarkdown";
 import { Button, Spin, Typography } from "antd";
@@ -18,6 +17,7 @@ const templates = [
     icon: <FontAwesomeIcon icon={faStar} className={cls.icon + " text-yellow-400"} />, // Most Popular
     badge: "Most Popular",
     gradient: "bg-gradient-to-r from-violet-600 to-fuchsia-600",
+    img: "/firsttem.png",
   },
   {
     id: 1,
@@ -26,6 +26,7 @@ const templates = [
     icon: <FontAwesomeIcon icon={faPalette} className={cls.icon + " text-emerald-500"} />, // Creative
     badge: "Creative",
     gradient: "bg-gradient-to-r from-emerald-500 to-teal-400",
+    img: "/sectem.png",
   },
   {
     id: 2,
@@ -34,6 +35,7 @@ const templates = [
     icon: <FontAwesomeIcon icon={faCircleCheck} className={cls.icon + " text-slate-500"} />, // Classic
     badge: "Classic",
     gradient: "bg-gradient-to-r from-slate-500 to-gray-400",
+    img: "/thrtem.png",
   },
   {
     id: 3,
@@ -42,6 +44,7 @@ const templates = [
     icon: <FontAwesomeIcon icon={faBriefcase} className={cls.icon + " text-blue-600"} />, // Executive
     badge: "Executive",
     gradient: "bg-gradient-to-r from-blue-600 to-indigo-500",
+    img: "/forthem.png",
   },
   {
     id: 4,
@@ -50,6 +53,7 @@ const templates = [
     icon: <FontAwesomeIcon icon={faCode} className={cls.icon + " text-orange-500"} />, // Tech
     badge: "Tech",
     gradient: "bg-gradient-to-r from-orange-500 to-red-400",
+    img: "/fifthem.png",
   },
   {
     id: 5,
@@ -58,6 +62,7 @@ const templates = [
     icon: <FontAwesomeIcon icon={faGraduationCap} className={cls.icon + " text-purple-600"} />, // Academic
     badge: "Academic",
     gradient: "bg-gradient-to-r from-purple-600 to-pink-400",
+    img: "/sixthem.png",
   },
 ];
 
@@ -102,21 +107,11 @@ function ResumeSelectGrid() {
     <>
       {contextHolder}
       <div className={cls.resumePreset}>
-        <Typography.Title level={4} className={cls.headText}>Ընտրեք ձեր սիրելի ռեզյումեի շաբլոնը</Typography.Title>
-        <Typography.Paragraph style={{ color: '#7c3aed', fontWeight: 500, marginBottom: 16, fontSize: 16 }}>
-          Յուրաքանչյուր շաբլոն ունի իր յուրահատուկ դիզայնը։ Փորձեք տարբեր շաբլոններ՝ տեսնելու համար բոլոր դիզայնները։
+        <Typography.Title level={4} className={cls.headText}>Choose Your Resume Template</Typography.Title>
+        <Typography.Paragraph className={cls.selectText}>
+          Select a professional template that best represents your style
         </Typography.Paragraph>
         <div className={cls.resumeWrapper}>
-          <div className={cls.stepsNext}>
-            <Button onClick={() => handleNextStep(0)}>Назад</Button>
-            <Button
-              onClick={handleGenerateResume}
-              disabled={!allowNextStep}
-              type="primary"
-            >
-              Начать генерацию
-            </Button>
-          </div>
           <div className={cls.resumeSelectGrid}>
             {templates.map((tpl) => (
               <div
@@ -128,24 +123,58 @@ function ResumeSelectGrid() {
                 })}
                 style={{ cursor: "pointer", minWidth: 260, maxWidth: 320, flex: 1 }}
               >
-                <div className={cls.templateCard + " " + tpl.gradient + (resumePreset === tpl.id ? " " + cls.selected : "")}
-                  style={{ borderRadius: 16, boxShadow: resumePreset === tpl.id ? "0 0 0 3px rgba(79, 70, 229, 0.3)" : "0 4px 16px 0 rgba(30,41,59,0.08)" }}
+                <div
+                  className={
+                    cls.templateCard +
+                    " " +
+                    tpl.gradient +
+                    (resumePreset === tpl.id ? " " + cls.selected : "")
+                  }
+                  style={{
+                    borderRadius: 16,
+                    boxShadow: resumePreset === tpl.id
+                      ? "0 0 0 3px rgba(79, 70, 229, 0.3)"
+                      : "0 4px 16px 0 rgba(30,41,59,0.08)",
+                  }}
                 >
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="w-10 h-10 rounded-full flex items-center justify-center bg-white/80 shadow text-xl">
-                      {tpl.icon}
-                    </div>
-                    <span className="text-xs font-semibold px-2 py-1 rounded bg-white/80 text-violet-600">{tpl.badge}</span>
+                  {/* Նկարը առաջինը */}
+                  <div className={cls.cardPreview} style={{ marginBottom: 16 }}>
+                    <img
+                      src={tpl.img}
+                      alt={tpl.title}
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                        borderRadius: "16px",
+                        background: "#fff",
+                      }}
+                    />
                   </div>
-                  <div className="text-lg font-bold text-white drop-shadow mb-1">{tpl.title}</div>
-                  <div className="text-xs text-white/90 mb-2">{tpl.description}</div>
-                  <div className="w-full h-32 bg-white/60 rounded-lg flex items-center justify-center text-gray-400 text-sm font-medium">
-                    Preview
+                  {/* Title */}
+                  <div className={cls.cardTitle}>{tpl.title}</div>
+                  {/* Description */}
+                  <div className={cls.cardDesc}>{tpl.description}</div>
+                  {/* Icon + Badge ներքևում */}
+                  <div className={cls.cardBadge} style={{ marginTop: 18 }}>
+                    <span className={cls.cardBadgeIcon}>{tpl.icon}</span>
+                    <span>{tpl.badge}</span>
                   </div>
                 </div>
               </div>
             ))}
           </div>
+        </div>
+        <div className={cls.stepsNext}>
+          <Button onClick={() => handleNextStep(0)} className={cls.backButton}>Back</Button>
+          <Button
+            onClick={handleGenerateResume}
+            disabled={!allowNextStep}
+            type="primary"
+            className={cls.nextButton}
+          >
+            Continue
+          </Button>
         </div>
       </div>
       {resumeGenerateLoading &&

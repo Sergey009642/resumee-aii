@@ -37,9 +37,9 @@ const ResumeTemplate4 = React.forwardRef<HTMLDivElement, { resumeData: ResumeDat
       <div ref={ref} className={styles.template4}>
         <div className={styles['template4-header']}>
           {photoUrl ? (
-            <img src={photoUrl} alt="Resume photo" className="photo" />
+            <img src={photoUrl} alt="Resume photo" className={styles.photo} />
           ) : (
-            <div className="photo" style={{ color: '#a1a1aa' }}>Photo</div>
+            <div className={styles.photo} style={{ color: '#a1a1aa' }}>Photo</div>
           )}
           <h1>{name || (isEmpty ? "Your Name" : "")}</h1>
           <h2>{role || (isEmpty ? "Your Position" : "")}</h2>
