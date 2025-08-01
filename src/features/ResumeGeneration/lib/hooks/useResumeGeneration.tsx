@@ -24,6 +24,7 @@ function useResumeGeneration() {
       }
 
       const data = await response.json();
+      console.log('AI resume result:', data.result);
       setGenerateResumeLoading(false);
       return data.result;
     } catch (error) {
@@ -46,3 +47,4 @@ function useResumeGeneration() {
 }
 
 export { useResumeGeneration };
+

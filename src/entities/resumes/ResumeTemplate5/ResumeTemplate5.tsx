@@ -1,4 +1,3 @@
-
 import React from "react";
 import { ResumeData } from "@entities/resumes/ResumeTemplate1/api/types";
 import styles from "./ResumeTemplate5.module.scss";
@@ -69,56 +68,78 @@ const ResumeTemplate5 = React.forwardRef<HTMLDivElement, { resumeData: ResumeDat
                 </div>
               </div>
             )}
-            {professionalPath && professionalPath.length > 0 && (
-              <>
-                {professionalPath.map((exp, idx) => (
-                  <div className={styles.timelineEvent} key={"exp-" + idx}>
-                    <div className={styles.timelineDot} />
-                    <div className={styles.timelineContent}>
-                      <h3>Experience</h3>
-                      <div className={styles.timelineTitle}>{exp.role} <span className={styles.timelineCompany}>@ {exp.name}</span></div>
-                      <div className={styles.timelinePeriod}>{exp.startWork} — {exp.endWork}</div>
-                      <div className={styles.timelineDesc}>{exp.description}</div>
-                      {exp.achievements && exp.achievements.length > 0 && (
-                        <ul className={styles.timelineAchievements}>
-                          {exp.achievements.map((ach, i) => (
-                            <li key={i}>{ach}</li>
-                          ))}
-                        </ul>
-                      )}
-                    </div>
-                  </div>
-                ))}
-              </>
-            )}
-            {educationDetails && educationDetails.length > 0 && (
-              <>
-                {educationDetails.map((edu, i) => (
-                  <div className={styles.timelineEvent} key={"edu-" + i}>
-                    <div className={styles.timelineDot} />
-                    <div className={styles.timelineContent}>
-                      <h3>Education</h3>
-                      <div className={styles.timelineTitle}>{edu.name}</div>
-                      <div className={styles.timelineFaculty}>{edu.faculty} {edu.speciality && `- ${edu.speciality}`}</div>
-                      <div className={styles.timelinePeriod}>{edu.endYear} {edu.level && `(${edu.level})`}</div>
-                    </div>
-                  </div>
-                ))}
-              </>
-            )}
-            {skills && skills.length > 0 && (
-              <div className={styles.timelineEvent}>
+
+            {/* Experience */}
+            {(professionalPath && professionalPath.length > 0
+              ? professionalPath
+              : [
+                  {
+                    role: "Position",
+                    name: "Company",
+                    startWork: "Start",
+                    endWork: "End",
+                    description: "Describe your responsibilities or achievements here.",
+                    achievements: [],
+                  },
+                ]
+            ).map((exp, idx) => (
+              <div className={styles.timelineEvent} key={"exp-" + idx}>
                 <div className={styles.timelineDot} />
                 <div className={styles.timelineContent}>
-                  <h3>Skills</h3>
-                  <div className={styles.timelineSkillsList}>
-                    {skills.map((skill, i) => (
-                      <span key={i} className={styles.timelineSkillBadge}>{skill}</span>
-                    ))}
+                  <h3>Experience</h3>
+                  <div className={styles.timelineTitle}>
+                    {exp.role} <span className={styles.timelineCompany}>@ {exp.name}</span>
                   </div>
+                  <div className={styles.timelinePeriod}>{exp.startWork} — {exp.endWork}</div>
+                  <div className={styles.timelineDesc}>{exp.description}</div>
+                  {exp.achievements && exp.achievements.length > 0 ? (
+                    <ul className={styles.timelineAchievements}>
+                      {exp.achievements.map((ach, i) => (
+                        <li key={i}>{ach}</li>
+                      ))}
+                    </ul>
+                  ) : null}
                 </div>
               </div>
-            )}
+            ))}
+
+            {/* Education */}
+            {(educationDetails && educationDetails.length > 0
+              ? educationDetails
+              : [
+                  {
+                    name: "Institution Name",
+                    faculty: "Faculty",
+                    speciality: "Speciality",
+                    endYear: "Year",
+                    level: "Bachelor",
+                  },
+                ]
+            ).map((edu, i) => (
+              <div className={styles.timelineEvent} key={"edu-" + i}>
+                <div className={styles.timelineDot} />
+                <div className={styles.timelineContent}>
+                  <h3>Education</h3>
+                  <div className={styles.timelineTitle}>{edu.name}</div>
+                  <div className={styles.timelineFaculty}>{edu.faculty} {edu.speciality && `- ${edu.speciality}`}</div>
+                  <div className={styles.timelinePeriod}>{edu.endYear} {edu.level && `(${edu.level})`}</div>
+                </div>
+              </div>
+            ))}
+
+            {/* Skills */}
+            <div className={styles.timelineEvent}>
+              <div className={styles.timelineDot} />
+              <div className={styles.timelineContent}>
+                <h3>Skills</h3>
+                <div className={styles.timelineSkillsList}>
+                  {(skills && skills.length > 0 ? skills : ["Teamwork", "Communication", "Problem Solving"]).map((skill, i) => (
+                    <span key={i} className={styles.timelineSkillBadge}>{skill}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
             {isEmpty && (
               <div className={styles.timelineEvent}>
                 <div className={styles.timelineDot} />

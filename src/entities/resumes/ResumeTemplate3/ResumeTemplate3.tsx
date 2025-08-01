@@ -1,4 +1,3 @@
-
 import React from "react";
 import { ResumeData } from "@entities/resumes/ResumeTemplate1/api/types";
 import cls from "./ResumeTemplate3.module.scss";
@@ -59,27 +58,6 @@ const ResumeTemplate3 = React.forwardRef<HTMLDivElement, { resumeData: ResumeDat
           <h3>Summary</h3>
           <div>{summary || (isEmpty ? "A brief description about yourself, your skills, and career objectives." : "")}</div>
         </div>
-        <div className={cls.gridExperience}>
-          <h3>Professional Experience</h3>
-          {professionalPath && professionalPath.length > 0 ? (
-            professionalPath.map((exp, idx) => (
-              <div key={idx} className={cls.expItem}>
-                <div className={cls.expTitle}>{exp.role} <span className={cls.expCompany}>@ {exp.name}</span></div>
-                <div className={cls.expPeriod}>{exp.startWork} — {exp.endWork}</div>
-                <div className={cls.expDesc}>{exp.description}</div>
-                {exp.achievements && exp.achievements.length > 0 && (
-                  <ul className={cls.achievementsList}>
-                    {exp.achievements.map((ach, i) => (
-                      <li key={i}>{ach}</li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-            ))
-          ) : isEmpty ? (
-            <div className={cls.emptyText}>No experience listed.</div>
-          ) : null}
-        </div>
         <div className={cls.gridSkills}>
           <h3>Skills</h3>
           <div className={cls.skillsList}>
@@ -88,24 +66,72 @@ const ResumeTemplate3 = React.forwardRef<HTMLDivElement, { resumeData: ResumeDat
                 <span key={i} className={cls.skillBadge}>{skill}</span>
               ))
             ) : (
-              <span className={cls.emptyText}>No skills listed.</span>
+              <>
+                <span className={cls.skillBadge}>Teamwork</span>
+                <span className={cls.skillBadge}>Communication</span>
+                <span className={cls.skillBadge}>Problem Solving</span>
+              </>
             )}
           </div>
+        </div>
+        <div className={cls.gridExperience}>
+          <h3>Professional Experience</h3>
+          {(professionalPath && professionalPath.length > 0
+            ? professionalPath
+            : [
+                {
+                  role: "Position",
+                  name: "Company",
+                  startWork: "Start",
+                  endWork: "End",
+                  description: "Describe your responsibilities or achievements here.",
+                  achievements: [],
+                },
+              ]
+          ).map((exp, idx) => (
+            <div key={idx} className={cls.expItem}>
+              <div className={cls.expTitle}>
+                {exp.role} <span className={cls.expCompany}>@ {exp.name}</span>
+              </div>
+              <div className={cls.expPeriod}>{exp.startWork} — {exp.endWork}</div>
+              <div className={cls.expDesc}>{exp.description}</div>
+              {exp.achievements && exp.achievements.length > 0 ? (
+                <ul className={cls.achievementsList}>
+                  {exp.achievements.map((ach, i) => (
+                    <li key={i}>{ach}</li>
+                  ))}
+                </ul>
+              ) : null}
+            </div>
+          ))}
         </div>
         <div className={cls.gridEducation}>
           <h3>Education</h3>
           <div>
-            {educationDetails && educationDetails.length > 0 ? (
-              educationDetails.map((edu, i) => (
-                <div key={i} className={cls.eduItem}>
-                  <div className={cls.eduName}>{edu.name}</div>
-                  <div className={cls.eduFaculty}>{edu.faculty} {edu.speciality && `- ${edu.speciality}`}</div>
-                  <div className={cls.eduPeriod}>{edu.endYear} {edu.level && `(${edu.level})`}</div>
+            {(educationDetails && educationDetails.length > 0
+              ? educationDetails
+              : [
+                  {
+                    name: "Institution Name",
+                    faculty: "Faculty",
+                    speciality: "",
+                    endYear: "Year",
+                    level: "",
+                  },
+                ]
+            ).map((edu, i) => (
+              <div key={i} className={cls.eduItem}>
+                <div className={cls.eduName}>{edu.name || "Institution Name"}</div>
+                <div className={cls.eduFaculty}>
+                  {edu.faculty || "Faculty"}
+                  {edu.speciality && ` - ${edu.speciality}`}
                 </div>
-              ))
-            ) : (
-              <span className={cls.emptyText}>No education listed.</span>
-            )}
+                <div className={cls.eduPeriod}>
+                  {edu.endYear || "Year"}
+                  {edu.level && ` (${edu.level})`}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

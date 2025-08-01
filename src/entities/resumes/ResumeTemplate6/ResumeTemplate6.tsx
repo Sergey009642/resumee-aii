@@ -1,5 +1,3 @@
-
-
 import React from "react";
 import { ResumeData } from "@entities/resumes/ResumeTemplate1/api/types";
 import styles from "./ResumeTemplate6.module.scss";
@@ -63,51 +61,73 @@ const ResumeTemplate6 = React.forwardRef<HTMLDivElement, { resumeData: ResumeDat
           </div>
           <div className={styles.overlapSection + ' ' + styles.overlapSectionExperience}>
             <h3>Professional Experience</h3>
-            {professionalPath && professionalPath.length > 0 ? (
-              professionalPath.map((exp, idx) => (
-                <div key={idx} className={styles.expItem}>
-                  <div className={styles.expTitle}>{exp.role} <span className={styles.expCompany}>@ {exp.name}</span></div>
-                  <div className={styles.expPeriod}>{exp.startWork} — {exp.endWork}</div>
-                  <div className={styles.expDesc}>{exp.description}</div>
-                  {exp.achievements && exp.achievements.length > 0 && (
-                    <ul className={styles.achievementsList}>
-                      {exp.achievements.map((ach, i) => (
-                        <li key={i}>{ach}</li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-              ))
-            ) : isEmpty ? (
-              <div className={styles.emptyText}>No experience listed.</div>
-            ) : null}
+            {(professionalPath && professionalPath.length > 0
+              ? professionalPath
+              : isEmpty
+                ? [{
+                    role: "Position",
+                    name: "Company",
+                    startWork: "Start",
+                    endWork: "End",
+                    description: "Describe your responsibilities or achievements here.",
+                    achievements: [],
+                  }]
+                : []
+            ).map((exp, idx) => (
+              <div key={idx} className={styles.expItem}>
+                <div className={styles.expTitle}>{exp.role || (isEmpty ? "Position" : "")} <span className={styles.expCompany}>@ {exp.name || (isEmpty ? "Company" : "")}</span></div>
+                <div className={styles.expPeriod}>{exp.startWork || (isEmpty ? "Start" : "")} — {exp.endWork || (isEmpty ? "End" : "")}</div>
+                <div className={styles.expDesc}>{exp.description || (isEmpty ? "Describe your responsibilities or achievements here." : "")}</div>
+                {exp.achievements && exp.achievements.length > 0 ? (
+                  <ul className={styles.achievementsList}>
+                    {exp.achievements.map((ach, i) => (
+                      <li key={i}>{ach}</li>
+                    ))}
+                  </ul>
+                ) : null}
+              </div>
+            ))}
           </div>
           <div className={styles.overlapSection + ' ' + styles.overlapSectionSkills}>
             <h3>Skills</h3>
             <div className={styles.skillsList}>
-              {skills && skills.length > 0 ? (
-                skills.map((skill, i) => (
-                  <span key={i} className={styles.skillBadge}>{skill}</span>
-                ))
-              ) : (
-                <span className={styles.emptyText}>No skills listed.</span>
-              )}
+              {(skills && skills.length > 0
+                ? skills
+                : isEmpty
+                  ? ["Teamwork", "Communication", "Problem Solving"]
+                  : []
+              ).map((skill, i) => (
+                <span key={i} className={styles.skillBadge}>{skill}</span>
+              ))}
             </div>
           </div>
           <div className={styles.overlapSection + ' ' + styles.overlapSectionEducation}>
             <h3>Education</h3>
             <div>
-              {educationDetails && educationDetails.length > 0 ? (
-                educationDetails.map((edu, i) => (
-                  <div key={i} className={styles.eduItem}>
-                    <div className={styles.eduName}>{edu.name}</div>
-                    <div className={styles.eduFaculty}>{edu.faculty} {edu.speciality && `- ${edu.speciality}`}</div>
-                    <div className={styles.eduPeriod}>{edu.endYear} {edu.level && `(${edu.level})`}</div>
+              {(educationDetails && educationDetails.length > 0
+                ? educationDetails
+                : isEmpty
+                  ? [{
+                      name: "Institution Name",
+                      faculty: "Faculty",
+                      speciality: "Speciality",
+                      endYear: "Year",
+                      level: "Bachelor",
+                    }]
+                : []
+              ).map((edu, i) => (
+                <div key={i} className={styles.eduItem}>
+                  <div className={styles.eduName}>{edu.name || (isEmpty ? "Institution Name" : "")}</div>
+                  <div className={styles.eduFaculty}>
+                    {edu.faculty || (isEmpty ? "Faculty" : "")}
+                    {edu.speciality && ` - ${edu.speciality}`}
                   </div>
-                ))
-              ) : (
-                <span className={styles.emptyText}>No education listed.</span>
-              )}
+                  <div className={styles.eduPeriod}>
+                    {edu.endYear || (isEmpty ? "Year" : "")}
+                    {edu.level && ` (${edu.level})`}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
