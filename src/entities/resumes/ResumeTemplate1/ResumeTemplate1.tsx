@@ -212,4 +212,5 @@ const ResumeTemplate1 = React.forwardRef<HTMLDivElement, ResumeTemplate1Props>((
 
 export {
   ResumeTemplate1
-}
+ }
+
